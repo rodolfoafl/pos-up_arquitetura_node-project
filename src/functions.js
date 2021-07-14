@@ -13,6 +13,13 @@ const updatePlayerScore = () => {
 };
 //#endregion
 
+//Categorias pré-definidas
+const predefinedCategories = [
+  { id: 11, name: "Movies" },
+  { id: 15, name: "Video Games" },
+  { id: 18, name: "Computers" },
+];
+
 export const startQuiz = () => {
   console.log("Starting quiz...");
 };
