@@ -47,6 +47,11 @@ const shuffleArray = (array) => {
   return array;
 };
 
+//Confere se a resposta fornecida pelo jogador é a correta e atualiza sua pontuação
+const checkIfCorrectAnswer = (playerAnswer, correctAnswer) => {
+  if (playerAnswer === correctAnswer) return updatePlayerScore();
+};
+
 //Executa o fluxo de pergunta-resposta do Quiz
 const displayQuestion = (questions, index) => {
   if (index < questions.length) {
@@ -60,6 +65,7 @@ const displayQuestion = (questions, index) => {
         },
       ])
       .then(async (res) => {
+        checkIfCorrectAnswer(res.answer, questions[index].correct_answer);
         index++;
         displayQuestion(questions, index);
       })
