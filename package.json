@@ -1,0 +1,19 @@
+{
+  "name": "pos-up_arquitetura_node-project",
+  "version": "0.0.1",
+  "description": "A quiz application, using the Open Trivia DB API to fetch categories and questions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodolfoafl/pos-up_arquitetura_node-project.git"
+  },
+  "author": "Rodolfo A. F. Leal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodolfoafl/pos-up_arquitetura_node-project/issues"
+  },
+  "homepage": "https://github.com/rodolfoafl/pos-up_arquitetura_node-project#readme"
+}
