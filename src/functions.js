@@ -22,6 +22,31 @@ const predefinedCategories = [
   { id: 18, name: "Computers" },
 ];
 
+//Exibe as categorias disponíveis
+const displayCategories = () => {
+  inquirer
+    .prompt([
+      {
+        name: "categories",
+        type: "list",
+        message: "\n\nIn which category would you like to test your knowledge?",
+        choices: predefinedCategories.map((category) => {
+          return { ...category }.name;
+        }),
+      },
+    ])
+    .then(async (res) => {
+      let questions = [];
+      if (res.categories === "Movies") {
+        console.log("selected movies");
+      } else if (res.categories === "Video Games") {
+        console.log("selected video games");
+      } else {
+        console.log("selected computers");
+      }
+    });
+};
+
 export const startQuiz = () => {
   inquirer
     .prompt([
@@ -36,7 +61,7 @@ export const startQuiz = () => {
       if (res.start === "Exit") {
         return;
       } else {
-        console.log("display categories");
+        displayCategories();
       }
     });
 };
