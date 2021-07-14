@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+import { decode } from "html-entities";
 
 import { fetchQuestions } from "./requests.js";
 
@@ -24,12 +25,49 @@ const predefinedCategories = [
   { id: 18, name: "Computers" },
 ];
 
+//Constroi o array de respostas, juntando a reposta correta com as respostas incorretas, e o retorna embaralhado
+const constructAnswersArray = (question) => {
+  let decodedCorrectAnswer = decode(question.correct_answer.trim());
+  let decodedIncorrectAnswers = question.incorrect_answers.map((answer) => {
+    return decode(answer.trim());
+  });
+  let allAnswers = [...decodedIncorrectAnswers, decodedCorrectAnswer];
+  let shuffledAnswers = shuffleArray(allAnswers);
+  return shuffledAnswers;
+};
+
+//Retorna um array embaralhadom usando o algoritmo Fisher-Yates
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
 //Executa o fluxo de pergunta-resposta do Quiz
 const displayQuestion = (questions, index) => {
   if (index < questions.length) {
-    console.log(`displaying question ${index}`);
-    index++;
-    displayQuestion(questions, index);
+    inquirer
+      .prompt([
+        {
+          name: "answer",
+          type: "list",
+          message: "\n" + decode(questions[index].question.toString()),
+          choices: constructAnswersArray(questions[index]),
+        },
+      ])
+      .then(async (res) => {
+        index++;
+        displayQuestion(questions, index);
+      })
+      .catch((error) => {
+        if (error.isTtyError) {
+          console.error(error);
+        }
+      });
   } else {
     console.log("display final result");
   }
