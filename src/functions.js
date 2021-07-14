@@ -1,3 +1,5 @@
+import inquirer from "inquirer";
+
 //#region Variáveis e Métodos para manipulação da pontuação
 //Pontuação do jogador
 let playerScore = 0;
@@ -21,5 +23,20 @@ const predefinedCategories = [
 ];
 
 export const startQuiz = () => {
-  console.log("Starting quiz...");
+  inquirer
+    .prompt([
+      {
+        name: "start",
+        type: "list",
+        message: "Welcome to the Quiz! Let's start?",
+        choices: ["Start Quiz", "Exit"],
+      },
+    ])
+    .then(async (res) => {
+      if (res.start === "Exit") {
+        return;
+      } else {
+        console.log("display categories");
+      }
+    });
 };
