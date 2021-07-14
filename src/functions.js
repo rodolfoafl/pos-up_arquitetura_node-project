@@ -139,6 +139,7 @@ const displayCategories = () => {
     });
 };
 
+//Inicializa o Quiz
 export const startQuiz = () => {
   inquirer
     .prompt([
