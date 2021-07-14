@@ -52,6 +52,17 @@ const checkIfCorrectAnswer = (playerAnswer, correctAnswer) => {
   if (playerAnswer === correctAnswer) return updatePlayerScore();
 };
 
+//De acordo com a pontuação final do jogador, seleciona qual mensagem exibir
+const chooseResultMessage = () => {
+  if (playerScore > 4) {
+    return `Congratulations, you got the high score! Your score is: ${playerScore}/5`;
+  } else if (playerScore > 0) {
+    return `Better luck next time! Your final score is: ${playerScore}/5`;
+  } else {
+    return `Your final score is: ${playerScore}/5. Who cares, is just a game!`;
+  }
+};
+
 //Exibe o resultado final no console e dá a opção de jogar novamente
 const displayFinalResult = () => {
   inquirer
@@ -59,7 +70,7 @@ const displayFinalResult = () => {
       {
         name: "restart",
         type: "list",
-        message: `you final score is: ${playerScore}`,
+        message: `\n\n${chooseResultMessage()}. \nWould you like to play again?`,
         choices: ["Play Again", "Exit"],
       },
     ])
