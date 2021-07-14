@@ -52,6 +52,27 @@ const checkIfCorrectAnswer = (playerAnswer, correctAnswer) => {
   if (playerAnswer === correctAnswer) return updatePlayerScore();
 };
 
+//Exibe o resultado final no console e dá a opção de jogar novamente
+const displayFinalResult = () => {
+  inquirer
+    .prompt([
+      {
+        name: "restart",
+        type: "list",
+        message: `you final score is: ${playerScore}`,
+        choices: ["Play Again", "Exit"],
+      },
+    ])
+    .then(async (res) => {
+      if (res.restart === "Exit") {
+        return;
+      } else {
+        resetPlayerScore();
+        displayCategories();
+      }
+    });
+};
+
 //Executa o fluxo de pergunta-resposta do Quiz
 const displayQuestion = (questions, index) => {
   if (index < questions.length) {
@@ -75,7 +96,7 @@ const displayQuestion = (questions, index) => {
         }
       });
   } else {
-    console.log("display final result");
+    displayFinalResult();
   }
 };
 
