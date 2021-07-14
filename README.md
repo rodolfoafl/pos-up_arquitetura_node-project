@@ -17,7 +17,7 @@
 - Execute `npm install` ou `yarn install` para instalar as dependencias.
 - Execute `npm start` para iniciar a aplicação.
 
-## Documentaçãos
+## Documentação
 
 - [Node](https://nodejs.org/en/)
 - [Open Trivia DB](https://opentdb.com/api_config.php): API fornecedora das categorias, perguntas e respostas.
