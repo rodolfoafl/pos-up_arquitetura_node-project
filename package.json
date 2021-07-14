@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/rodolfoafl/pos-up_arquitetura_node-project/issues"
   },
-  "homepage": "https://github.com/rodolfoafl/pos-up_arquitetura_node-project#readme"
+  "homepage": "https://github.com/rodolfoafl/pos-up_arquitetura_node-project#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "html-entities": "^2.3.2",
+    "inquirer": "^8.1.2"
+  }
 }
