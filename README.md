@@ -20,7 +20,7 @@
 ## Documentaçãos
 
 - [Node](https://nodejs.org/en/)
-- [Open Trivia DB](https://opentdb.com/api_config.php) API fornecedora das categorias, perguntas e respostas.
-- [Axios](https://axios-http.com/docs/intro) Utilizado para requisições HTTP.
-- [Inquirer](https://www.npmjs.com/package/inquirer#documentation) Pacote de interface interativa para utilização com linhas de comando.
-- [html-entities](https://www.npmjs.com/package/html-entities) Utilizado para decodificar entidades HTML.
+- [Open Trivia DB](https://opentdb.com/api_config.php): API fornecedora das categorias, perguntas e respostas.
+- [Axios](https://axios-http.com/docs/intro): Utilizado para requisições HTTP.
+- [Inquirer](https://www.npmjs.com/package/inquirer#documentation): Pacote de interface interativa para utilização com linhas de comando.
+- [html-entities](https://www.npmjs.com/package/html-entities): Utilizado para decodificar entidades HTML.
