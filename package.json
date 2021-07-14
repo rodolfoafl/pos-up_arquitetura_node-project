@@ -4,7 +4,8 @@
   "description": "A quiz application, using the Open Trivia DB API to fetch categories and questions.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,6 @@
     "axios": "^0.21.1",
     "html-entities": "^2.3.2",
     "inquirer": "^8.1.2"
-  }
+  },
+  "type": "module"
 }
