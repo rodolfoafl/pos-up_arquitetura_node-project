@@ -1,5 +1,7 @@
 import inquirer from "inquirer";
 
+import { fetchQuestions } from "./requests.js";
+
 //#region Variáveis e Métodos para manipulação da pontuação
 //Pontuação do jogador
 let playerScore = 0;
@@ -22,6 +24,17 @@ const predefinedCategories = [
   { id: 18, name: "Computers" },
 ];
 
+//Executa o fluxo de pergunta-resposta do Quiz
+const displayQuestion = (questions, index) => {
+  if (index < questions.length) {
+    console.log(`displaying question ${index}`);
+    index++;
+    displayQuestion(questions, index);
+  } else {
+    console.log("display final result");
+  }
+};
+
 //Exibe as categorias disponíveis
 const displayCategories = () => {
   inquirer
@@ -38,11 +51,14 @@ const displayCategories = () => {
     .then(async (res) => {
       let questions = [];
       if (res.categories === "Movies") {
-        console.log("selected movies");
+        questions = await fetchQuestions(11);
+        displayQuestion(questions, 0);
       } else if (res.categories === "Video Games") {
-        console.log("selected video games");
+        questions = await fetchQuestions(15);
+        displayQuestion(questions, 0);
       } else {
-        console.log("selected computers");
+        questions = await fetchQuestions(18);
+        displayQuestion(questions, 0);
       }
     });
 };
