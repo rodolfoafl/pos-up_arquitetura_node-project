@@ -1,4 +1,4 @@
-# Quick Quiz
+# Trivia Quiz
 
 - Um aplicativo de console, em Node. É um Quiz simples, onde o jogador poderá escolher uma categoria, responder as perguntas
   e ver sua pontuação final.
